@@ -1,2 +1,2 @@
-# ESINN
-Exploring Subitizing in Neural Networks
+# ESINN : Exploring Subitizing in Neural Networks
+
