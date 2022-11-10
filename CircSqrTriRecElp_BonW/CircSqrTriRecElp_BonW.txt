@@ -1,0 +1,14 @@
+RNG Seed:			0
+Image Count:		10000
+Image Size:			256 x 256
+Shape Types:		Circle, Square, Triangle, Ellipse, Rectangle
+Shape Color:		0
+Background Color:	1
+Min Shape Width:	10
+Max Shape Width:	60
+Min Shape Height:	10
+Max Shape Height:	60
+Min Shape Count:	1
+Max Shape Count:	20
+Min Pixel Coverage:	0.02
+Max Pixel Coverage:	0.70
