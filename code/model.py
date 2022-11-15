@@ -1,51 +1,44 @@
-
-# importing the libraries
-import pandas as pd
-import numpy as np
-
-import matplotlib.pyplot as plt
-
-# for creating validation set
-from sklearn.model_selection import train_test_split
-
-# for evaluating the model
-from sklearn.metrics import accuracy_score
-from tqdm import tqdm
-
 # PyTorch libraries and modules
 import torch
+import torch.nn as nn
 from torch.autograd import Variable
 from torch.nn import Linear, ReLU, CrossEntropyLoss, Sequential, Conv2d, MaxPool2d, Module, Softmax, BatchNorm2d, Dropout
-from torch.optim import Adam, SGD
+
+# Creating a CNN class
+import torch.nn as nn
+import torchvision.models as models
 
 
-
-class Net(Module):   
-    def __init__(self):
-        super(Net, self).__init__()
-
-        self.cnn_layers = Sequential(
-            # Defining a 2D convolution layer
-            Conv2d(1, 4, kernel_size=3, stride=1, padding=1),
-            BatchNorm2d(4),
-            ReLU(inplace=True),
-            MaxPool2d(kernel_size=2, stride=2),
-            # Defining another 2D convolution layer
-            Conv2d(4, 4, kernel_size=3, stride=1, padding=1),
-            BatchNorm2d(4),
-            ReLU(inplace=True),
-            MaxPool2d(kernel_size=2, stride=2),
-        )
-
-        self.linear_layers = Sequential(
-            Linear(4 * 7 * 7, 10)
-        )
-
-    # Defining the forward pass    
+# Creating a CNN class
+class ConvNeuralNet(nn.Module):
+    #  Determine what layers and their order in CNN object 
+    def __init__(self, num_classes):
+        super(ConvNeuralNet, self).__init__()
+        self.conv_layer1 = nn.Conv2d(in_channels=3, out_channels=32, kernel_size=3)
+        self.conv_layer2 = nn.Conv2d(in_channels=32, out_channels=32, kernel_size=3)
+        self.max_pool1 = nn.MaxPool2d(kernel_size = 2, stride = 2)
+        
+        self.conv_layer3 = nn.Conv2d(in_channels=32, out_channels=64, kernel_size=3)
+        self.conv_layer4 = nn.Conv2d(in_channels=64, out_channels=64, kernel_size=3)
+        self.max_pool2 = nn.MaxPool2d(kernel_size = 2, stride = 2)
+        
+        self.fc1 = nn.Linear(1600, 128)
+        self.relu1 = nn.ReLU()
+        self.fc2 = nn.Linear(128, num_classes)
+    
+    # Progresses data across layers    
     def forward(self, x):
-        x = self.cnn_layers(x)
-        x = x.view(x.size(0), -1)
-        x = self.linear_layers(x)
-        return x
-
-
+        out = self.conv_layer1(x)
+        out = self.conv_layer2(out)
+        out = self.max_pool1(out)
+        
+        out = self.conv_layer3(out)
+        out = self.conv_layer4(out)
+        out = self.max_pool2(out)
+                
+        out = out.reshape(out.size(0), -1)
+        
+        out = self.fc1(out)
+        out = self.relu1(out)
+        out = self.fc2(out)
+        return out
