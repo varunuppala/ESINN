@@ -1,6 +1,6 @@
 import torch
 from torch.optim import Adam, SGD
-from torch.nn import Linear, ReLU, CrossEntropyLoss
+from torch.nn import Linear, ReLU, CrossEntropyLoss,MSELoss
 from model import ConvNeuralNet
 
 from sklearn.metrics import confusion_matrix
@@ -18,16 +18,17 @@ def train(train_loader,val_loader):
 
 	counter = 0
 
-	num_epochs = 1
+	num_epochs = 20
 
-	model = ConvNeuralNet(num_classes=100)
+	model = ConvNeuralNet(num_classes=1)
 	print(model)
 
 	# defining the optimizer
 	optimizer = Adam(model.parameters(), lr=0.001)
 
 	# defining the loss function
-	criterion = CrossEntropyLoss()
+	criterion = MSELoss()
+	#criterion = CrossEntropyLoss()
 	
 	valAccHist = []
 	trainLossHist = []
@@ -38,15 +39,19 @@ def train(train_loader,val_loader):
 		
 		#Load in the data in batches using the train_loader object
 	    for i, (images, labels) in enumerate(train_loader):  
+	        
 	        # Move tensors to the configured device
 	        images = images.to(device)
+	        
 	        labels = labels.to(device)
+	        #print(labels)
 
 	        model.train()
 	        
 	        # Forward pass
 	        outputs = model(images)
-	        loss = criterion(outputs, labels)
+	        
+	        loss = criterion(outputs, labels.float())
 	        
 	        # Backward and optimize
 	        optimizer.zero_grad()
@@ -69,9 +74,10 @@ def train(train_loader,val_loader):
 
 	                    inputs, labels = inputs.to(device), labels.to(device)
 	                    output = model.forward(inputs)
-	                    valLoss += criterion(output, labels).item()
+	                    valLoss += criterion(output, labels.float())
 
 	                    output = torch.exp(output)
+	                    #print(output)
 	                    top_p, top_class = output.topk(1, dim=1)
 	                    equals = top_class == labels.view(*top_class.shape)
 	                    valAcc += torch.mean(equals.type(torch.FloatTensor)).item()

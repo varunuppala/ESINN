@@ -18,10 +18,8 @@ import albumentations as A
 from albumentations.pytorch import ToTensorV2
 import cv2
 
-transform = transforms.Compose([transforms.Resize((32,32)),
+transform = transforms.Compose([transforms.Resize((128,128)),
                                      transforms.ToTensor(),
-                                     transforms.Normalize(mean=[0.4914, 0.4822, 0.4465],
-                                                          std=[0.2023, 0.1994, 0.2010])
                                      ])
 
 class ShapesDataset(Dataset):
@@ -36,7 +34,7 @@ class ShapesDataset(Dataset):
     def __getitem__(self, idx):
         image_filepath = '.'+self.annotations.iloc[idx,0]+'.png'
 
-        image = Image.open(image_filepath).convert("RGB")
+        image = Image.open(image_filepath).convert("L")
 
         label = torch.tensor(int(self.annotations.iloc[idx,1]))
 
