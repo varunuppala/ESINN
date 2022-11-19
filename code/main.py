@@ -23,9 +23,9 @@ warnings.filterwarnings("ignore")
 
 def main(args):
 
-	batch_size = 1024
+	batch_size = 64
 
-	len_dataset = len(pd.read_csv(args.d))
+	len_dataset = len(pd.read_csv(args.d,nrows = 5000))
 
 	train_size = int(0.7 * len_dataset)
 	val_size = int(0.1 * len_dataset)

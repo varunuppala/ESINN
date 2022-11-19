@@ -10,7 +10,10 @@ import matplotlib.pyplot as plt
 from torch import nn, cuda, optim
 import torch.nn.functional as F
 
+
 device = ("cuda" if torch.cuda.is_available() else "cpu")
+
+#device = ("mps" if torch.backends.mps.is_built() else "cpu")
 
 #ref : https://www.kaggle.com/code/liamvinson/transfer-learning-cnn
 
@@ -18,17 +21,20 @@ def train(train_loader,val_loader):
 
 	counter = 0
 
-	num_epochs = 20
+	# number of epochs
+	num_epochs = 100
 
-	model = ConvNeuralNet(num_classes=1)
+	#Change classes to 1 for regression
+	model = ConvNeuralNet(num_classes=21)
 	print(model)
 
 	# defining the optimizer
 	optimizer = Adam(model.parameters(), lr=0.001)
 
-	# defining the loss function
-	criterion = MSELoss()
-	#criterion = CrossEntropyLoss()
+	# defining the loss function 
+	#Change this for regression
+	#criterion = MSELoss()
+	criterion = CrossEntropyLoss()
 	
 	valAccHist = []
 	trainLossHist = []
@@ -51,7 +57,7 @@ def train(train_loader,val_loader):
 	        # Forward pass
 	        outputs = model(images)
 	        
-	        loss = criterion(outputs, labels.float())
+	        loss = criterion(outputs, labels)
 	        
 	        # Backward and optimize
 	        optimizer.zero_grad()
@@ -74,10 +80,10 @@ def train(train_loader,val_loader):
 
 	                    inputs, labels = inputs.to(device), labels.to(device)
 	                    output = model.forward(inputs)
-	                    valLoss += criterion(output, labels.float())
+	                    valLoss += criterion(output, labels).item()
 
+	                    #Change these for regression too
 	                    output = torch.exp(output)
-	                    #print(output)
 	                    top_p, top_class = output.topk(1, dim=1)
 	                    equals = top_class == labels.view(*top_class.shape)
 	                    valAcc += torch.mean(equals.type(torch.FloatTensor)).item()

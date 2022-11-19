@@ -18,14 +18,14 @@ import albumentations as A
 from albumentations.pytorch import ToTensorV2
 import cv2
 
-transform = transforms.Compose([transforms.Resize((128,128)),
-                                     transforms.ToTensor(),
+transform = transforms.Compose([
+    transforms.ToTensor(),
                                      ])
 
 class ShapesDataset(Dataset):
     def __init__(self, csv_file,transform=transform):
         super().__init__()
-        self.annotations = pd.read_csv(csv_file)
+        self.annotations = pd.read_csv(csv_file,nrows = 5000)
         self.transform = transform
         
     def __len__(self):
