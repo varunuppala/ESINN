@@ -16,16 +16,19 @@ from sklearn.metrics import accuracy_score
 from dataloading import ShapesDataset
 from torch.optim import Adam, SGD
 from torch.nn import Linear, ReLU, CrossEntropyLoss
-from training import train,validateModel
+from training import hyperparameter_sweep, train, validateModel
 
 import warnings
 warnings.filterwarnings("ignore")
 
+device = ("cuda" if torch.cuda.is_available() else "cpu")
+
 def main(args):
 
-	batch_size = 64
+	batch_size = 2
+	nrows = 50
 
-	len_dataset = len(pd.read_csv(args.d, nrows=500))
+	len_dataset = len(pd.read_csv(args.d, nrows=nrows))
 
 	train_size = int(0.7 * len_dataset)
 	val_size = int(0.1 * len_dataset)
@@ -33,7 +36,7 @@ def main(args):
 
 	print('lengths of \n Dataset: {}, Train: {}, Validation: {} ,Test: {}'.format(len_dataset,train_size,val_size,test_size))
 
-	dataset = ShapesDataset(csv_file = args.d)
+	dataset = ShapesDataset(csv_file = args.d, nrows=nrows)
 
 	train_val_set,test_set =  torch.utils.data.random_split(dataset,[train_size+val_size,test_size])
 	train_set,val_set =  torch.utils.data.random_split(train_val_set,[train_size,val_size])
@@ -42,9 +45,11 @@ def main(args):
 	val_loader = DataLoader(dataset = val_set,batch_size=batch_size,shuffle = True)
 	test_loader = DataLoader(dataset = test_set,batch_size=batch_size,shuffle = True)
 
-	model = train(train_loader,val_loader)
+	hyperparameter_sweep(train_set, val_set, test_set)
 
-	validateModel(model,test_loader)
+	# model = train(train_loader,val_loader)
+
+	# validateModel(model,test_loader)
 
 
 if __name__ == '__main__':

@@ -23,9 +23,9 @@ transform = transforms.Compose([
                                      ])
 
 class ShapesDataset(Dataset):
-    def __init__(self, csv_file,transform=transform):
+    def __init__(self, csv_file, transform=transform, nrows=None):
         super().__init__()
-        self.annotations = pd.read_csv(csv_file, nrows=500)
+        self.annotations = pd.read_csv(csv_file, nrows=nrows)
         self.transform = transform
         
     def __len__(self):

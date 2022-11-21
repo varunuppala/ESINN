@@ -1,0 +1,53 @@
+{
+    "os": "Windows-10-10.0.19044-SP0",
+    "python": "3.9.12",
+    "heartbeatAt": "2022-11-21T22:03:30.480604",
+    "startedAt": "2022-11-21T22:03:30.116621",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "-d",
+        "C:\\Users\\16kin\\Documents\\Classes\\COSC 576 - Neural Networks\\Subitizing Project\\ESINN\\Circ_WonB\\Circ_WonB_labels.csv"
+    ],
+    "state": "running",
+    "program": "C:\\Users\\16kin\\Documents\\Classes\\COSC 576 - Neural Networks\\Subitizing Project\\ESINN\\code\\main.py",
+    "codePath": "code\\main.py",
+    "git": {
+        "remote": "https://github.com/varunuppala/ESINN.git",
+        "commit": "3eab294fd10bb6f3a4f3f78cbeff98a0004e96e0"
+    },
+    "email": "sik29@georgetown.edu",
+    "root": "C:/Users/16kin/Documents/Classes/COSC 576 - Neural Networks/Subitizing Project/ESINN",
+    "host": "Sams-Laptop",
+    "username": "16kin",
+    "executable": "C:\\Users\\16kin\\anaconda3\\envs\\ml_base\\python.exe",
+    "cpu_count": 6,
+    "cpu_count_logical": 12,
+    "cpu_freq": {
+        "current": 2592.0,
+        "min": 0.0,
+        "max": 2592.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2592.0,
+            "min": 0.0,
+            "max": 2592.0
+        }
+    ],
+    "disk": {
+        "total": 475.69237899780273,
+        "used": 442.0310363769531
+    },
+    "gpu": "NVIDIA GeForce RTX 2060",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 2060",
+            "memory_total": 6442450944
+        }
+    ],
+    "memory": {
+        "total": 15.870895385742188
+    }
+}

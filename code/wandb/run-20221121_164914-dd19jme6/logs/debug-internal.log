@@ -1,0 +1,347 @@
+2022-11-21 16:49:14,869 INFO    StreamThr :1876 [internal.py:wandb_internal():88] W&B internal server running at pid: 1876, started at: 2022-11-21 16:49:14.869698
+2022-11-21 16:49:14,871 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: status
+2022-11-21 16:49:14,873 DEBUG   SenderThread:1876 [sender.py:send_request():317] send_request: status
+2022-11-21 16:49:14,874 DEBUG   SenderThread:1876 [sender.py:send():303] send: header
+2022-11-21 16:49:14,874 INFO    WriterThread:1876 [datastore.py:open_for_write():75] open: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\run-dd19jme6.wandb
+2022-11-21 16:49:14,909 DEBUG   SenderThread:1876 [sender.py:send():303] send: run
+2022-11-21 16:49:15,117 INFO    SenderThread:1876 [dir_watcher.py:__init__():216] watching files in: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files
+2022-11-21 16:49:15,117 INFO    SenderThread:1876 [sender.py:_start_run_threads():928] run started: dd19jme6 with start time 1669067354.867703
+2022-11-21 16:49:15,117 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:15,118 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:15,122 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: check_version
+2022-11-21 16:49:15,123 DEBUG   SenderThread:1876 [sender.py:send_request():317] send_request: check_version
+2022-11-21 16:49:15,212 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: run_start
+2022-11-21 16:49:15,231 DEBUG   HandlerThread:1876 [system_info.py:__init__():31] System info init
+2022-11-21 16:49:15,231 DEBUG   HandlerThread:1876 [system_info.py:__init__():46] System info init done
+2022-11-21 16:49:15,231 INFO    HandlerThread:1876 [system_monitor.py:start():150] Starting system monitor
+2022-11-21 16:49:15,231 INFO    SystemMonitor:1876 [system_monitor.py:_start():116] Starting system asset monitoring threads
+2022-11-21 16:49:15,231 INFO    HandlerThread:1876 [system_monitor.py:probe():168] Collecting system info
+2022-11-21 16:49:15,235 INFO    SystemMonitor:1876 [interfaces.py:start():168] Started cpu
+2022-11-21 16:49:15,235 INFO    SystemMonitor:1876 [interfaces.py:start():168] Started disk
+2022-11-21 16:49:15,235 INFO    SystemMonitor:1876 [interfaces.py:start():168] Started gpu
+2022-11-21 16:49:15,241 INFO    SystemMonitor:1876 [interfaces.py:start():168] Started memory
+2022-11-21 16:49:15,250 INFO    SystemMonitor:1876 [interfaces.py:start():168] Started network
+2022-11-21 16:49:15,259 DEBUG   HandlerThread:1876 [system_info.py:probe():195] Probing system
+2022-11-21 16:49:15,260 DEBUG   HandlerThread:1876 [system_info.py:_probe_git():180] Probing git
+2022-11-21 16:49:15,329 DEBUG   HandlerThread:1876 [system_info.py:_probe_git():188] Probing git done
+2022-11-21 16:49:15,329 DEBUG   HandlerThread:1876 [system_info.py:probe():241] Probing system done
+2022-11-21 16:49:15,329 DEBUG   HandlerThread:1876 [system_monitor.py:probe():177] {'os': 'Windows-10-10.0.19044-SP0', 'python': '3.9.12', 'heartbeatAt': '2022-11-21T21:49:15.259283', 'startedAt': '2022-11-21T21:49:14.839786', 'docker': None, 'cuda': None, 'args': ('-d', 'C:\\Users\\16kin\\Documents\\Classes\\COSC 576 - Neural Networks\\Subitizing Project\\ESINN\\Circ_WonB\\Circ_WonB_labels.csv'), 'state': 'running', 'program': 'C:\\Users\\16kin\\Documents\\Classes\\COSC 576 - Neural Networks\\Subitizing Project\\ESINN\\code\\main.py', 'codePath': 'code\\main.py', 'git': {'remote': 'https://github.com/varunuppala/ESINN.git', 'commit': '3eab294fd10bb6f3a4f3f78cbeff98a0004e96e0'}, 'email': 'sik29@georgetown.edu', 'root': 'C:/Users/16kin/Documents/Classes/COSC 576 - Neural Networks/Subitizing Project/ESINN', 'host': 'Sams-Laptop', 'username': '16kin', 'executable': 'C:\\Users\\16kin\\anaconda3\\envs\\ml_base\\python.exe', 'cpu_count': 6, 'cpu_count_logical': 12, 'cpu_freq': {'current': 2592.0, 'min': 0.0, 'max': 2592.0}, 'cpu_freq_per_core': [{'current': 2592.0, 'min': 0.0, 'max': 2592.0}], 'disk': {'total': 475.69237899780273, 'used': 442.0359573364258}, 'gpu': 'NVIDIA GeForce RTX 2060', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 2060', 'memory_total': 6442450944}], 'memory': {'total': 15.870895385742188}}
+2022-11-21 16:49:15,330 INFO    HandlerThread:1876 [system_monitor.py:probe():178] Finished collecting system info
+2022-11-21 16:49:15,330 INFO    HandlerThread:1876 [system_monitor.py:probe():181] Publishing system info
+2022-11-21 16:49:15,330 DEBUG   HandlerThread:1876 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2022-11-21 16:49:15,330 DEBUG   HandlerThread:1876 [system_info.py:_save_pip():67] Saving pip packages done
+2022-11-21 16:49:15,330 DEBUG   HandlerThread:1876 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2022-11-21 16:49:15,333 ERROR   HandlerThread:1876 [system_info.py:_save_conda():85] Error saving conda packages: [WinError 2] The system cannot find the file specified
+Traceback (most recent call last):
+  File "C:\Users\16kin\anaconda3\envs\ml_base\lib\site-packages\wandb\sdk\internal\system\system_info.py", line 81, in _save_conda
+    subprocess.call(
+  File "C:\Users\16kin\anaconda3\envs\ml_base\lib\subprocess.py", line 349, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\16kin\anaconda3\envs\ml_base\lib\subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\16kin\anaconda3\envs\ml_base\lib\subprocess.py", line 1420, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+2022-11-21 16:49:15,335 DEBUG   HandlerThread:1876 [system_info.py:_save_conda():86] Saving conda packages done
+2022-11-21 16:49:15,335 INFO    HandlerThread:1876 [system_monitor.py:probe():183] Finished publishing system info
+2022-11-21 16:49:15,420 DEBUG   SenderThread:1876 [sender.py:send():303] send: files
+2022-11-21 16:49:15,420 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-metadata.json with policy now
+2022-11-21 16:49:15,431 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: stop_status
+2022-11-21 16:49:15,431 DEBUG   SenderThread:1876 [sender.py:send_request():317] send_request: stop_status
+2022-11-21 16:49:15,497 DEBUG   SenderThread:1876 [sender.py:send():303] send: telemetry
+2022-11-21 16:49:15,745 INFO    Thread-22 :1876 [upload_job.py:push():143] Uploaded file C:\Users\16kin\AppData\Local\Temp\tmp0mhex57hwandb\2tuia9pp-wandb-metadata.json
+2022-11-21 16:49:16,121 INFO    Thread-17 :1876 [dir_watcher.py:_on_file_created():275] file/dir created: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\wandb-summary.json
+2022-11-21 16:49:16,121 INFO    Thread-17 :1876 [dir_watcher.py:_on_file_created():275] file/dir created: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\requirements.txt
+2022-11-21 16:49:16,121 INFO    Thread-17 :1876 [dir_watcher.py:_on_file_created():275] file/dir created: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\conda-environment.yaml
+2022-11-21 16:49:16,122 INFO    Thread-17 :1876 [dir_watcher.py:_on_file_created():275] file/dir created: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\wandb-metadata.json
+2022-11-21 16:49:17,006 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:17,007 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:17,007 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:17,008 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:17,121 INFO    Thread-17 :1876 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\wandb-summary.json
+2022-11-21 16:49:17,474 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:17,475 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:17,475 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:17,477 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:17,942 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:17,943 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:17,944 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:17,944 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:18,132 INFO    Thread-17 :1876 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\wandb-summary.json
+2022-11-21 16:49:18,409 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:18,409 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:18,410 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:18,410 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:18,876 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:18,877 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:18,877 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:18,878 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:19,134 INFO    Thread-17 :1876 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\wandb-summary.json
+2022-11-21 16:49:19,341 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:19,341 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:19,341 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:19,342 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:19,805 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:19,805 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:19,806 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:19,807 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:20,148 INFO    Thread-17 :1876 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\wandb-summary.json
+2022-11-21 16:49:20,266 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:20,266 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:20,267 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:20,268 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:20,727 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:20,728 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:20,728 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:20,729 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:21,151 INFO    Thread-17 :1876 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\wandb-summary.json
+2022-11-21 16:49:21,189 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:21,190 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:21,190 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:21,191 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:21,651 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:21,651 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:21,652 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:21,652 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:22,113 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:22,114 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:22,114 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:22,115 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:22,166 INFO    Thread-17 :1876 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\wandb-summary.json
+2022-11-21 16:49:22,576 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:22,577 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:22,577 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:22,578 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:23,038 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:23,038 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:23,039 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:23,039 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:23,180 INFO    Thread-17 :1876 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\wandb-summary.json
+2022-11-21 16:49:23,500 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:23,501 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:23,501 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:23,502 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:23,961 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:23,962 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:23,962 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:23,963 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:24,189 INFO    Thread-17 :1876 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\wandb-summary.json
+2022-11-21 16:49:24,424 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:24,424 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:24,425 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:24,426 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:24,887 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:24,887 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:24,888 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:24,888 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:25,203 INFO    Thread-17 :1876 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\wandb-summary.json
+2022-11-21 16:49:25,352 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:25,353 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:25,353 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:25,354 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:25,817 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:25,817 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:25,818 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:25,818 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:26,211 INFO    Thread-17 :1876 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\wandb-summary.json
+2022-11-21 16:49:26,282 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:26,283 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:26,283 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:26,284 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:26,749 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:26,750 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:26,750 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:26,752 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:27,214 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:27,214 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:27,215 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:27,215 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:27,215 INFO    Thread-17 :1876 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\wandb-summary.json
+2022-11-21 16:49:27,679 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:27,680 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:27,680 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:27,681 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:28,146 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:28,147 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:28,147 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:28,148 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:28,219 INFO    Thread-17 :1876 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\wandb-summary.json
+2022-11-21 16:49:28,609 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:28,609 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:28,609 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:28,610 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:29,070 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:29,071 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:29,071 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:29,073 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:29,231 INFO    Thread-17 :1876 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\wandb-summary.json
+2022-11-21 16:49:29,533 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:29,533 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:29,533 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:29,534 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:29,997 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:29,997 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:29,998 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:29,999 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:30,246 INFO    Thread-17 :1876 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\wandb-summary.json
+2022-11-21 16:49:30,462 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:30,463 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:30,463 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:30,464 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:30,512 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: stop_status
+2022-11-21 16:49:30,513 DEBUG   SenderThread:1876 [sender.py:send_request():317] send_request: stop_status
+2022-11-21 16:49:30,925 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:30,925 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:30,925 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:30,926 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:31,254 INFO    Thread-17 :1876 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\wandb-summary.json
+2022-11-21 16:49:31,386 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:31,387 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:31,387 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:31,389 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:31,849 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:31,850 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:31,850 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:31,851 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:32,260 INFO    Thread-17 :1876 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\wandb-summary.json
+2022-11-21 16:49:32,312 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:32,312 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:32,313 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:32,313 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:32,773 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:32,774 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:32,774 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:32,775 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:33,235 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:33,236 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:33,236 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:33,237 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:33,263 INFO    Thread-17 :1876 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\wandb-summary.json
+2022-11-21 16:49:33,699 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:33,700 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:33,700 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:33,701 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:34,164 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:34,165 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:34,165 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:34,166 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:34,276 INFO    Thread-17 :1876 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\wandb-summary.json
+2022-11-21 16:49:34,627 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:34,628 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:34,628 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:34,629 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:35,092 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: partial_history
+2022-11-21 16:49:35,093 DEBUG   SenderThread:1876 [sender.py:send():303] send: history
+2022-11-21 16:49:35,093 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:35,094 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:35,094 DEBUG   SenderThread:1876 [sender.py:send():303] send: telemetry
+2022-11-21 16:49:35,094 DEBUG   SenderThread:1876 [sender.py:send():303] send: exit
+2022-11-21 16:49:35,094 INFO    SenderThread:1876 [sender.py:send_exit():442] handling exit code: 0
+2022-11-21 16:49:35,094 INFO    SenderThread:1876 [sender.py:send_exit():444] handling runtime: 19
+2022-11-21 16:49:35,095 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:35,095 INFO    SenderThread:1876 [sender.py:send_exit():450] send defer
+2022-11-21 16:49:35,095 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: defer
+2022-11-21 16:49:35,095 INFO    HandlerThread:1876 [handler.py:handle_request_defer():162] handle defer: 0
+2022-11-21 16:49:35,095 DEBUG   SenderThread:1876 [sender.py:send_request():317] send_request: defer
+2022-11-21 16:49:35,095 INFO    SenderThread:1876 [sender.py:send_request_defer():459] handle sender defer: 0
+2022-11-21 16:49:35,096 INFO    SenderThread:1876 [sender.py:transition_state():463] send defer: 1
+2022-11-21 16:49:35,096 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: defer
+2022-11-21 16:49:35,096 INFO    HandlerThread:1876 [handler.py:handle_request_defer():162] handle defer: 1
+2022-11-21 16:49:35,096 INFO    HandlerThread:1876 [system_monitor.py:finish():160] Stopping system monitor
+2022-11-21 16:49:35,096 DEBUG   SystemMonitor:1876 [system_monitor.py:_start():130] Starting system metrics aggregation loop
+2022-11-21 16:49:35,097 INFO    HandlerThread:1876 [interfaces.py:finish():173] Joined cpu
+2022-11-21 16:49:35,097 DEBUG   SystemMonitor:1876 [system_monitor.py:_start():137] Finished system metrics aggregation loop
+2022-11-21 16:49:35,103 INFO    HandlerThread:1876 [interfaces.py:finish():173] Joined disk
+2022-11-21 16:49:35,103 DEBUG   SystemMonitor:1876 [system_monitor.py:_start():141] Publishing last batch of metrics
+2022-11-21 16:49:35,129 INFO    HandlerThread:1876 [interfaces.py:finish():173] Joined gpu
+2022-11-21 16:49:35,129 INFO    HandlerThread:1876 [interfaces.py:finish():173] Joined memory
+2022-11-21 16:49:35,129 INFO    HandlerThread:1876 [interfaces.py:finish():173] Joined network
+2022-11-21 16:49:35,129 DEBUG   SenderThread:1876 [sender.py:send_request():317] send_request: defer
+2022-11-21 16:49:35,129 INFO    SenderThread:1876 [sender.py:send_request_defer():459] handle sender defer: 1
+2022-11-21 16:49:35,129 INFO    SenderThread:1876 [sender.py:transition_state():463] send defer: 2
+2022-11-21 16:49:35,130 DEBUG   SenderThread:1876 [sender.py:send():303] send: stats
+2022-11-21 16:49:35,130 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: defer
+2022-11-21 16:49:35,131 INFO    HandlerThread:1876 [handler.py:handle_request_defer():162] handle defer: 2
+2022-11-21 16:49:35,131 DEBUG   SenderThread:1876 [sender.py:send_request():317] send_request: defer
+2022-11-21 16:49:35,131 INFO    SenderThread:1876 [sender.py:send_request_defer():459] handle sender defer: 2
+2022-11-21 16:49:35,131 INFO    SenderThread:1876 [sender.py:transition_state():463] send defer: 3
+2022-11-21 16:49:35,131 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: defer
+2022-11-21 16:49:35,131 INFO    HandlerThread:1876 [handler.py:handle_request_defer():162] handle defer: 3
+2022-11-21 16:49:35,132 DEBUG   SenderThread:1876 [sender.py:send_request():317] send_request: defer
+2022-11-21 16:49:35,132 INFO    SenderThread:1876 [sender.py:send_request_defer():459] handle sender defer: 3
+2022-11-21 16:49:35,132 INFO    SenderThread:1876 [sender.py:transition_state():463] send defer: 4
+2022-11-21 16:49:35,132 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: defer
+2022-11-21 16:49:35,132 INFO    HandlerThread:1876 [handler.py:handle_request_defer():162] handle defer: 4
+2022-11-21 16:49:35,133 DEBUG   SenderThread:1876 [sender.py:send():303] send: summary
+2022-11-21 16:49:35,133 INFO    SenderThread:1876 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2022-11-21 16:49:35,133 DEBUG   SenderThread:1876 [sender.py:send_request():317] send_request: defer
+2022-11-21 16:49:35,133 INFO    SenderThread:1876 [sender.py:send_request_defer():459] handle sender defer: 4
+2022-11-21 16:49:35,134 INFO    SenderThread:1876 [sender.py:transition_state():463] send defer: 5
+2022-11-21 16:49:35,134 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: defer
+2022-11-21 16:49:35,134 INFO    HandlerThread:1876 [handler.py:handle_request_defer():162] handle defer: 5
+2022-11-21 16:49:35,134 DEBUG   SenderThread:1876 [sender.py:send_request():317] send_request: defer
+2022-11-21 16:49:35,134 INFO    SenderThread:1876 [sender.py:send_request_defer():459] handle sender defer: 5
+2022-11-21 16:49:35,274 INFO    SenderThread:1876 [sender.py:transition_state():463] send defer: 6
+2022-11-21 16:49:35,275 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: defer
+2022-11-21 16:49:35,275 INFO    HandlerThread:1876 [handler.py:handle_request_defer():162] handle defer: 6
+2022-11-21 16:49:35,276 DEBUG   SenderThread:1876 [sender.py:send_request():317] send_request: defer
+2022-11-21 16:49:35,276 INFO    SenderThread:1876 [sender.py:send_request_defer():459] handle sender defer: 6
+2022-11-21 16:49:35,276 INFO    SenderThread:1876 [sender.py:transition_state():463] send defer: 7
+2022-11-21 16:49:35,277 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: defer
+2022-11-21 16:49:35,278 INFO    HandlerThread:1876 [handler.py:handle_request_defer():162] handle defer: 7
+2022-11-21 16:49:35,278 DEBUG   SenderThread:1876 [sender.py:send_request():317] send_request: defer
+2022-11-21 16:49:35,278 INFO    SenderThread:1876 [sender.py:send_request_defer():459] handle sender defer: 7
+2022-11-21 16:49:35,279 INFO    SenderThread:1876 [dir_watcher.py:finish():362] shutting down directory watcher
+2022-11-21 16:49:35,285 INFO    SenderThread:1876 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\config.yaml
+2022-11-21 16:49:35,286 INFO    SenderThread:1876 [dir_watcher.py:_on_file_modified():292] file/dir modified: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\wandb-summary.json
+2022-11-21 16:49:35,288 INFO    SenderThread:1876 [dir_watcher.py:finish():392] scan: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files
+2022-11-21 16:49:35,289 INFO    SenderThread:1876 [dir_watcher.py:finish():406] scan save: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\conda-environment.yaml conda-environment.yaml
+2022-11-21 16:49:35,290 INFO    SenderThread:1876 [dir_watcher.py:finish():406] scan save: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\config.yaml config.yaml
+2022-11-21 16:49:35,291 INFO    SenderThread:1876 [dir_watcher.py:finish():406] scan save: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\requirements.txt requirements.txt
+2022-11-21 16:49:35,293 INFO    SenderThread:1876 [dir_watcher.py:finish():406] scan save: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\wandb-metadata.json wandb-metadata.json
+2022-11-21 16:49:35,293 INFO    SenderThread:1876 [dir_watcher.py:finish():406] scan save: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\wandb-summary.json wandb-summary.json
+2022-11-21 16:49:35,302 INFO    SenderThread:1876 [sender.py:transition_state():463] send defer: 8
+2022-11-21 16:49:35,311 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: defer
+2022-11-21 16:49:35,312 INFO    HandlerThread:1876 [handler.py:handle_request_defer():162] handle defer: 8
+2022-11-21 16:49:35,312 DEBUG   SenderThread:1876 [sender.py:send_request():317] send_request: defer
+2022-11-21 16:49:35,313 INFO    SenderThread:1876 [sender.py:send_request_defer():459] handle sender defer: 8
+2022-11-21 16:49:35,314 INFO    SenderThread:1876 [file_pusher.py:finish():168] shutting down file pusher
+2022-11-21 16:49:35,660 INFO    Thread-25 :1876 [upload_job.py:push():143] Uploaded file C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\wandb-summary.json
+2022-11-21 16:49:35,665 INFO    Thread-23 :1876 [upload_job.py:push():143] Uploaded file C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\config.yaml
+2022-11-21 16:49:35,685 INFO    Thread-24 :1876 [upload_job.py:push():143] Uploaded file C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\files\requirements.txt
+2022-11-21 16:49:35,897 INFO    Thread-16 :1876 [sender.py:transition_state():463] send defer: 9
+2022-11-21 16:49:35,898 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: defer
+2022-11-21 16:49:35,898 INFO    HandlerThread:1876 [handler.py:handle_request_defer():162] handle defer: 9
+2022-11-21 16:49:35,898 DEBUG   SenderThread:1876 [sender.py:send_request():317] send_request: defer
+2022-11-21 16:49:35,899 INFO    SenderThread:1876 [sender.py:send_request_defer():459] handle sender defer: 9
+2022-11-21 16:49:35,899 INFO    SenderThread:1876 [file_pusher.py:join():173] waiting for file pusher
+2022-11-21 16:49:35,899 INFO    SenderThread:1876 [sender.py:transition_state():463] send defer: 10
+2022-11-21 16:49:35,900 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: defer
+2022-11-21 16:49:35,900 INFO    HandlerThread:1876 [handler.py:handle_request_defer():162] handle defer: 10
+2022-11-21 16:49:35,900 DEBUG   SenderThread:1876 [sender.py:send_request():317] send_request: defer
+2022-11-21 16:49:35,900 INFO    SenderThread:1876 [sender.py:send_request_defer():459] handle sender defer: 10
+2022-11-21 16:49:36,082 INFO    SenderThread:1876 [sender.py:transition_state():463] send defer: 11
+2022-11-21 16:49:36,084 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: defer
+2022-11-21 16:49:36,084 INFO    HandlerThread:1876 [handler.py:handle_request_defer():162] handle defer: 11
+2022-11-21 16:49:36,085 DEBUG   SenderThread:1876 [sender.py:send_request():317] send_request: defer
+2022-11-21 16:49:36,085 INFO    SenderThread:1876 [sender.py:send_request_defer():459] handle sender defer: 11
+2022-11-21 16:49:36,086 INFO    SenderThread:1876 [sender.py:transition_state():463] send defer: 12
+2022-11-21 16:49:36,089 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: defer
+2022-11-21 16:49:36,089 DEBUG   SenderThread:1876 [sender.py:send():303] send: final
+2022-11-21 16:49:36,089 INFO    HandlerThread:1876 [handler.py:handle_request_defer():162] handle defer: 12
+2022-11-21 16:49:36,090 DEBUG   SenderThread:1876 [sender.py:send():303] send: footer
+2022-11-21 16:49:36,090 DEBUG   SenderThread:1876 [sender.py:send_request():317] send_request: defer
+2022-11-21 16:49:36,091 INFO    SenderThread:1876 [sender.py:send_request_defer():459] handle sender defer: 12
+2022-11-21 16:49:36,099 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: poll_exit
+2022-11-21 16:49:36,099 DEBUG   SenderThread:1876 [sender.py:send_request():317] send_request: poll_exit
+2022-11-21 16:49:36,101 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: server_info
+2022-11-21 16:49:36,102 DEBUG   SenderThread:1876 [sender.py:send_request():317] send_request: server_info
+2022-11-21 16:49:36,106 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: get_summary
+2022-11-21 16:49:36,107 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: sampled_history
+2022-11-21 16:49:36,271 DEBUG   HandlerThread:1876 [handler.py:handle_request():139] handle_request: shutdown
+2022-11-21 16:49:36,271 INFO    HandlerThread:1876 [handler.py:finish():814] shutting down handler
+2022-11-21 16:49:37,090 INFO    WriterThread:1876 [datastore.py:close():279] close: C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_164914-dd19jme6\run-dd19jme6.wandb
+2022-11-21 16:49:37,276 INFO    SenderThread:1876 [sender.py:finish():1331] shutting down sender
+2022-11-21 16:49:37,277 INFO    SenderThread:1876 [file_pusher.py:finish():168] shutting down file pusher
+2022-11-21 16:49:37,277 INFO    SenderThread:1876 [file_pusher.py:join():173] waiting for file pusher
+2022-11-21 16:49:38,550 INFO    MainThread:1876 [internal.py:handle_exit():78] Internal process exited

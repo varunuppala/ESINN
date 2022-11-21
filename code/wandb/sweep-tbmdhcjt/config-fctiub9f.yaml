@@ -1,0 +1,6 @@
+wandb_version: 1
+
+batch_size:
+  value: 4
+lr:
+  value: 0.006735647333525114

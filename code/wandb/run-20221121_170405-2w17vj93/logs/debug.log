@@ -1,0 +1,32 @@
+2022-11-21 17:04:05,298 INFO    Thread-191:26332 [wandb_setup.py:_flush():68] Configure stats pid to 26332
+2022-11-21 17:04:05,298 INFO    Thread-191:26332 [wandb_setup.py:_flush():68] Loading settings from C:\Users\16kin\.config\wandb\settings
+2022-11-21 17:04:05,298 INFO    Thread-191:26332 [wandb_setup.py:_flush():68] Loading settings from C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\settings
+2022-11-21 17:04:05,299 INFO    Thread-191:26332 [wandb_setup.py:_flush():68] Loading settings from environment variables: {'_require_service': 'True', 'project': 'esinn_10_data_points', 'entity': 'sik29', 'root_dir': 'C:\\Users\\16kin\\Documents\\Classes\\COSC 576 - Neural Networks\\Subitizing Project\\ESINN\\code', 'run_id': '2w17vj93', 'sweep_param_path': 'C:\\Users\\16kin\\Documents\\Classes\\COSC 576 - Neural Networks\\Subitizing Project\\ESINN\\code\\wandb\\sweep-tbmdhcjt\\config-2w17vj93.yaml', 'sweep_id': 'tbmdhcjt'}
+2022-11-21 17:04:05,299 INFO    Thread-191:26332 [wandb_setup.py:_flush():68] Inferring run settings from compute environment: {'program_relpath': 'code\\main.py', 'program': 'C:\\Users\\16kin\\Documents\\Classes\\COSC 576 - Neural Networks\\Subitizing Project\\ESINN\\code\\main.py'}
+2022-11-21 17:04:05,299 INFO    Thread-191:26332 [wandb_init.py:_log_setup():476] Logging user logs to C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_170405-2w17vj93\logs\debug.log
+2022-11-21 17:04:05,299 INFO    Thread-191:26332 [wandb_init.py:_log_setup():477] Logging internal logs to C:\Users\16kin\Documents\Classes\COSC 576 - Neural Networks\Subitizing Project\ESINN\code\wandb\run-20221121_170405-2w17vj93\logs\debug-internal.log
+2022-11-21 17:04:05,299 INFO    Thread-191:26332 [wandb_init.py:init():516] calling init triggers
+2022-11-21 17:04:05,299 INFO    Thread-191:26332 [wandb_init.py:init():519] wandb.init called with sweep_config: {'batch_size': 10, 'lr': 0.003281884168820628}
+config: {}
+2022-11-21 17:04:05,299 INFO    Thread-191:26332 [wandb_init.py:init():569] starting backend
+2022-11-21 17:04:05,299 INFO    Thread-191:26332 [wandb_init.py:init():573] setting up manager
+2022-11-21 17:04:05,310 INFO    Thread-191:26332 [backend.py:_multiprocessing_setup():102] multiprocessing start_methods=spawn, using: spawn
+2022-11-21 17:04:05,315 INFO    Thread-191:26332 [wandb_init.py:init():580] backend started and connected
+2022-11-21 17:04:05,321 INFO    Thread-191:26332 [wandb_run.py:_config_callback():1160] config_cb None None {'batch_size': 10, 'lr': 0.003281884168820628}
+2022-11-21 17:04:05,322 INFO    Thread-191:26332 [wandb_init.py:init():658] updated telemetry
+2022-11-21 17:04:05,356 INFO    Thread-191:26332 [wandb_init.py:init():693] communicating run to backend with 60 second timeout
+2022-11-21 17:04:05,572 INFO    Thread-191:26332 [wandb_run.py:_on_init():2000] communicating current version
+2022-11-21 17:04:05,618 INFO    Thread-191:26332 [wandb_run.py:_on_init():2004] got version response 
+2022-11-21 17:04:05,618 INFO    Thread-191:26332 [wandb_init.py:init():728] starting run threads in backend
+2022-11-21 17:04:05,852 INFO    Thread-191:26332 [wandb_run.py:_console_start():1980] atexit reg
+2022-11-21 17:04:05,852 INFO    Thread-191:26332 [wandb_run.py:_redirect():1838] redirect: SettingsConsole.WRAP_RAW
+2022-11-21 17:04:05,852 INFO    Thread-191:26332 [wandb_run.py:_redirect():1903] Wrapping output streams.
+2022-11-21 17:04:05,852 INFO    Thread-191:26332 [wandb_run.py:_redirect():1925] Redirects installed.
+2022-11-21 17:04:05,853 INFO    Thread-191:26332 [wandb_init.py:init():765] run started, returning control to user process
+2022-11-21 17:04:25,519 INFO    Thread-191:26332 [wandb_run.py:_finish():1746] finishing run sik29/esinn_10_data_points/2w17vj93
+2022-11-21 17:04:25,519 INFO    Thread-191:26332 [wandb_run.py:_atexit_cleanup():1949] got exitcode: 0
+2022-11-21 17:04:25,520 INFO    Thread-191:26332 [wandb_run.py:_restore():1932] restore
+2022-11-21 17:04:25,520 INFO    Thread-191:26332 [wandb_run.py:_restore():1938] restore done
+2022-11-21 17:04:27,695 INFO    Thread-191:26332 [wandb_run.py:_footer_history_summary_info():3377] rendering history
+2022-11-21 17:04:27,696 INFO    Thread-191:26332 [wandb_run.py:_footer_history_summary_info():3409] rendering summary
+2022-11-21 17:04:27,703 INFO    Thread-191:26332 [wandb_run.py:_footer_sync_info():3333] logging synced files

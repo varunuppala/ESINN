@@ -1,0 +1,1 @@
+{"epoch": 39, "log_train_loss": 2.9478106468281227, "val_acc": 0.0, "log_val_loss": 2.3394286942305653, "_timestamp": 1669067214.31016, "_runtime": 23.13482403755188, "_step": 39, "_wandb": {"runtime": 22}}
