@@ -4,7 +4,7 @@
 We have three branches:
 1. Main
 2. Regression - Solving the problem using regression
-3. data - Using classification
+3. classification - Using classification
 
 ## Implementing Next Steps
 
