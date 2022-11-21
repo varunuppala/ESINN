@@ -14,9 +14,9 @@ from torch.utils.data import Dataset, DataLoader
 
 # for creating validation set
 from sklearn.model_selection import train_test_split
-import albumentations as A
-from albumentations.pytorch import ToTensorV2
-import cv2
+# import albumentations as A
+# from albumentations.pytorch import ToTensorV2
+# import cv2
 
 transform = transforms.Compose([
     transforms.ToTensor(),
@@ -25,7 +25,7 @@ transform = transforms.Compose([
 class ShapesDataset(Dataset):
     def __init__(self, csv_file,transform=transform):
         super().__init__()
-        self.annotations = pd.read_csv(csv_file,nrows = 5000)
+        self.annotations = pd.read_csv(csv_file, nrows=500)
         self.transform = transform
         
     def __len__(self):
