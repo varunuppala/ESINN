@@ -16,7 +16,7 @@ from sklearn.metrics import accuracy_score
 from dataloading import ShapesDataset
 from torch.optim import Adam, SGD
 from torch.nn import Linear, ReLU, CrossEntropyLoss
-from training_regression import train,validateModel
+from training import train,validateModel
 
 import warnings
 warnings.filterwarnings("ignore")

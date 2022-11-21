@@ -17,6 +17,17 @@ device = ("cuda" if torch.cuda.is_available() else "cpu")
 
 #ref : https://www.kaggle.com/code/liamvinson/transfer-learning-cnn
 
+def accuracy(output, labels):
+	# output = torch.round(output)
+	# # print('IN ACC:')
+	# # print('dtype:', output.dtype)
+	# equals = output == labels
+	# return torch.mean(equals.type(torch.FloatTensor)).item()
+	# print(output)
+	# print(torch.mean(labels.type(torch.FloatTensor)))
+	return torch.mean((torch.abs(output - labels) <= 0.5).type(torch.FloatTensor)).item()
+
+
 def train(train_loader,val_loader):
 
 	counter = 0
@@ -25,16 +36,18 @@ def train(train_loader,val_loader):
 	num_epochs = 100
 
 	#Change classes to 1 for regression
-	model = ConvNeuralNet(num_classes=21)
+	model = ConvNeuralNet()
+	if device == "cuda":
+		model = model.cuda()
 	print(model)
 
 	# defining the optimizer
-	optimizer = Adam(model.parameters(), lr=0.001)
+	optimizer = Adam(model.parameters(), lr=1e-5)
 
 	# defining the loss function 
 	#Change this for regression
 	#criterion = MSELoss()
-	criterion = CrossEntropyLoss()
+	criterion = MSELoss()
 	
 	valAccHist = []
 	trainLossHist = []
@@ -44,60 +57,65 @@ def train(train_loader,val_loader):
 	for epoch in range(num_epochs):
 		
 		#Load in the data in batches using the train_loader object
-	    for i, (images, labels) in enumerate(train_loader):  
+		for i, (images, labels) in enumerate(train_loader):  
 	        
 	        # Move tensors to the configured device
-	        images = images.to(device)
-	        
-	        labels = labels.to(device)
+			images = images.to(device)
+
+			labels = labels.type(torch.FloatTensor)
+			labels = labels.to(device)
 	        #print(labels)
 
-	        model.train()
+			model.train()
 	        
 	        # Forward pass
-	        outputs = model(images)
+			outputs = model(images)
 	        
-	        loss = criterion(outputs, labels)
+			loss = criterion(outputs, labels)
 	        
 	        # Backward and optimize
-	        optimizer.zero_grad()
+			optimizer.zero_grad()
+
+			# print('Loss:\n', loss)
+			# print(loss.dtype)
 	        
-	        loss.backward()
+			loss.backward()
 	        
-	        optimizer.step()
+			optimizer.step()
 
 	        # Validate model every n iterations.
-	        if counter % 1 == 0:
+			if counter % 1 == 0:
 
-	            valLoss = 0
-	            valAcc = 0
+				valLoss = 0
+				valAcc = 0
 
 	            # Validating the model
-	            model.eval()
+				model.eval()
 	            
-	            with torch.no_grad():
-	                for inputs, labels in val_loader:
+				with torch.no_grad():
+					for inputs, labels in val_loader:
 
-	                    inputs, labels = inputs.to(device), labels.to(device)
-	                    output = model.forward(inputs)
-	                    valLoss += criterion(output, labels).item()
+						inputs, labels = inputs.to(device), labels.to(device)
+						output = model.forward(inputs)
+						valLoss += criterion(output, labels).item()
 
-	                    #Change these for regression too
-	                    output = torch.exp(output)
-	                    top_p, top_class = output.topk(1, dim=1)
-	                    equals = top_class == labels.view(*top_class.shape)
-	                    valAcc += torch.mean(equals.type(torch.FloatTensor)).item()
+						valAcc += accuracy(output, labels)
+						# #Change these for regression too
+						# output = torch.round(output)
+						# top_p, top_class = output.topk(1, dim=1)
+						# equals = top_class == labels.view(*top_class.shape)
+						# valAcc += torch.mean(equals.type(torch.FloatTensor)).item()
 
 
 	            # Output statistics.
-	            valAccHist += [valAcc / len(val_loader)]
-	            valLossHist += [valLoss / len(val_loader)]
+				valAccHist += [valAcc / len(val_loader)]
+				valLossHist += [valLoss / len(val_loader)]
 
 
-	    print('Epoch [{}/{}], TrainLoss: {:.4f}'.format(epoch+1, num_epochs, loss.item()))
-	    print('\tVal Accuracy: {:.6f} \tTrain Loss: {:.6f} \tVal Loss: {:.6f}'.format( valAcc/len(val_loader), loss.item(), valLoss/len(val_loader)))
+		print('Epoch [{}/{}], TrainLoss: {:.4f}'.format(epoch+1, num_epochs, loss.item()))
+		print('\tVal Accuracy: {:.6f} \tTrain Loss: {:.6f} \tVal Loss: {:.6f}'.format( valAcc/len(val_loader), loss.item(), valLoss/len(val_loader)))
 
-	    counter+=1
+		counter+=1
 
 	return model
 
@@ -132,11 +150,12 @@ def validateModel(model, valLoader):
             output = model.forward(inputs)
             valLoss += criterion(output, labels).item()
 
-            # Calculates validation top 1 accuracy.
-            output = torch.exp(output)
-            _, top_class = output.topk(1, dim=1)
-            equals = top_class == labels.view(*top_class.shape)
-            val1Acc += torch.mean(equals.type(torch.FloatTensor)).item()
+            val1Acc += accuracy(output, labels)
+            # # Calculates validation top 1 accuracy.
+            # output = torch.exp(output)
+            # _, top_class = output.topk(1, dim=1)
+            # equals = top_class == labels.view(*top_class.shape)
+            # val1Acc += torch.mean(equals.type(torch.FloatTensor)).item()
             
             true += labels.tolist()
             pred += top_class.flatten().tolist()

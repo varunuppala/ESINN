@@ -12,7 +12,7 @@ import torchvision.models as models
 # Creating a CNN class
 class ConvNeuralNet(nn.Module):
     #  Determine what layers and their order in CNN object 
-    def __init__(self, num_classes):
+    def __init__(self):
         super(ConvNeuralNet, self).__init__()
         self.conv_layer1 = nn.Conv2d(in_channels=1, out_channels=32, kernel_size=3)
         self.conv_layer2 = nn.Conv2d(in_channels=32, out_channels=32, kernel_size=3)
@@ -24,7 +24,7 @@ class ConvNeuralNet(nn.Module):
         
         self.fc1 = nn.Linear(238144, 128)
         self.relu1 = nn.ReLU()
-        self.fc2 = nn.Linear(128, num_classes)
+        self.fc2 = nn.Linear(128, 1)
     
     # Progresses data across layers    
     def forward(self, x):
