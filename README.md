@@ -1,5 +1,10 @@
 # ESINN : Exploring Subitizing in Neural Networks
 
+## Lines
+We have three branches:
+1. Main
+2. Regression - Solving the problem using regression
+3. data - Using classification
 
 ## Implementing Next Steps
 
@@ -21,4 +26,6 @@ https://ieeexplore.ieee.org/abstract/document/9425331?casa_token=epVf0fUHo48AAAA
 https://ojs.aaai.org/index.php/AAAI/article/view/3928
 
 ## Log runs
+
+![Alt text](image/W&B Chart 11_21_2022, 5_08_36 PM.png)
 
