@@ -27,5 +27,5 @@ https://ojs.aaai.org/index.php/AAAI/article/view/3928
 
 ## Log runs
 
-![Image](https://github.com/varunuppala/ESINN/tree/main/image)
+![Image](https://github.com/varunuppala/ESINN/blob/main/image/W%26B%20Chart%2011_21_2022%2C%205_08_36%20PM.png)
 
