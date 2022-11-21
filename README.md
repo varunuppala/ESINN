@@ -1,5 +1,10 @@
 # ESINN : Exploring Subitizing in Neural Networks
 
+
+## Implementing Next Steps
+
+Link to the plan : https://docs.google.com/document/d/1V-lSgaCfvsu_onxFxLnleFd1AfKDmV9DdGdjtpXIzTg/edit#
+
 ## Data Created
 
 Please find the Data in the folders:
@@ -8,10 +13,6 @@ Please find the Data in the folders:
    * [.txt] X 1 file - Contains the specifications of images in the folder
    * [.csv] X 1 file - Contains image path and number of shapes
    * [.png] X 10,000 file - Images
-
-## Implementing Next Steps
-
-Link to the plan : https://docs.google.com/document/d/1V-lSgaCfvsu_onxFxLnleFd1AfKDmV9DdGdjtpXIzTg/edit#
 
 ## Relevant Paper Links
 
