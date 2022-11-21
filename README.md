@@ -3,10 +3,6 @@
 ## Data Created
 
 Please find the Data in the folders:
-$ ./tree-md .
-# Project tree
-
-.
  * [tree-md]
  * [Data folder]
    * [.txt] * 1 - Contains the specifications of images in the folder
