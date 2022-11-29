@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 from argparser import parse_args
-import pandas as pd
+# import pandas as pd
 
 import matplotlib.pyplot as plt
 import torch
@@ -17,6 +17,7 @@ from dataloading import ShapesDataset
 from torch.optim import Adam, SGD
 from torch.nn import Linear, ReLU, CrossEntropyLoss
 from training import hyperparameter_sweep, train, validateModel
+from data_vis import dataset_iterate
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -25,18 +26,21 @@ device = ("cuda" if torch.cuda.is_available() else "cpu")
 
 def main(args):
 
-	batch_size = 2
-	nrows = 50
+	torch.manual_seed(42)
+
+	batch_size = 100
+	nrows = 1000
 
 	len_dataset = len(pd.read_csv(args.d, nrows=nrows))
 
 	train_size = int(0.7 * len_dataset)
 	val_size = int(0.1 * len_dataset)
 	test_size = int(0.2 * len_dataset)
+	# test_size = len_dataset - train_size - val_size
 
 	print('lengths of \n Dataset: {}, Train: {}, Validation: {} ,Test: {}'.format(len_dataset,train_size,val_size,test_size))
 
-	dataset = ShapesDataset(csv_file = args.d, nrows=nrows)
+	dataset = ShapesDataset(csv_file = args.d, nrows=nrows ,device=device)
 
 	train_val_set,test_set =  torch.utils.data.random_split(dataset,[train_size+val_size,test_size])
 	train_set,val_set =  torch.utils.data.random_split(train_val_set,[train_size,val_size])
@@ -46,6 +50,8 @@ def main(args):
 	test_loader = DataLoader(dataset = test_set,batch_size=batch_size,shuffle = True)
 
 	hyperparameter_sweep(train_set, val_set, test_set)
+
+	# dataset_iterate(train_loader)
 
 	# model = train(train_loader,val_loader)
 

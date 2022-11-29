@@ -23,22 +23,35 @@ transform = transforms.Compose([
                                      ])
 
 class ShapesDataset(Dataset):
-    def __init__(self, csv_file, transform=transform, nrows=None):
+    def __init__(self, csv_file, transform=transform, nrows=None, device='cpu'):
         super().__init__()
         self.annotations = pd.read_csv(csv_file, nrows=nrows)
         self.transform = transform
+        self.images = []
+        self.labels = []
+        for idx in range(len(self.annotations)):
+            image_filepath = '.'+self.annotations.iloc[idx,0]+'.png'
+            image = Image.open(image_filepath).convert("L")
+            label = torch.tensor(int(self.annotations.iloc[idx,1])).type(torch.FloatTensor)
+            if self.transform is not None:
+                image = self.transform(image)
+            self.images.append(image)
+            self.labels.append(label)
+
         
     def __len__(self):
         return len(self.annotations)
 
     def __getitem__(self, idx):
-        image_filepath = '.'+self.annotations.iloc[idx,0]+'.png'
+        # # print('Getting item', idx)
+        # image_filepath = '.'+self.annotations.iloc[idx,0]+'.png'
 
-        image = Image.open(image_filepath).convert("L")
+        # image = Image.open(image_filepath).convert("L")
 
-        label = torch.tensor(int(self.annotations.iloc[idx,1]))
+        # label = torch.tensor(int(self.annotations.iloc[idx,1])).type(torch.FloatTensor)
 
-        if self.transform is not None:
-            image = self.transform(image)
+        # if self.transform is not None:
+        #     image = self.transform(image)
         
-        return image, label
+        # return image, label
+        return self.images[idx], self.labels[idx]

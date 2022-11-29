@@ -14,6 +14,8 @@ from torch.utils.data import DataLoader
 import wandb
 import numpy as np
 
+from data_vis import show_image
+
 
 device = ("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -29,101 +31,28 @@ def accuracy(output, labels):
 	# return torch.mean(equals.type(torch.FloatTensor)).item()
 	# print(output)
 	# print(torch.mean(labels.type(torch.FloatTensor)))
-	return torch.mean((torch.abs(output - labels) <= 0.5).type(torch.FloatTensor)).item()
+	return torch.sum((torch.abs(output - labels) <= 0.5).type(torch.FloatTensor)).item()
 
 
 def train(train_loader, val_loader):
-
-	counter = 0
-
-	# number of epochs
+	
 	num_epochs = 1000
 
-	#Change classes to 1 for regression
-	model = ConvNeuralNet(256)
+	model = ConvNeuralNet(256, k_size=5, dropout_val=0.0)
 	if device == "cuda":
 		model = model.cuda()
 	print(model)
 
-	# defining the optimizer
 	optimizer = Adam(model.parameters(), lr=1e-5)
-
-	# defining the loss function 
-	#Change this for regression
-	#criterion = MSELoss()
-	criterion = MSELoss()
-	
-	valAccHist = []
-	trainLossHist = []
-	valLossHist = []
+	criterion = nn.MSELoss(reduction='sum')
 	
 	# We use the pre-defined number of epochs to determine how many iterations to train the network on
 	for epoch in range(num_epochs):
 
-		trainLoss = 0
-		
-		#Load in the data in batches using the train_loader object
-		for i, (images, labels) in enumerate(train_loader):  
-	        
-	        # Move tensors to the configured device
-			images = images.to(device)
+		model, avg_train_loss, train_acc, avg_val_loss, val_acc = train_one_epoch(model, train_loader, val_loader, optimizer, criterion)
 
-			labels = labels.type(torch.FloatTensor)
-			labels = labels.to(device)
-	        #print(labels)
-
-			model.train()
-	        
-	        # Forward pass
-			outputs = model(images)
-	        
-			loss = criterion(outputs, labels)
-
-			trainLoss += loss.item()
-	        
-	        # Backward and optimize
-			optimizer.zero_grad()
-
-			# print('Loss:\n', loss)
-			# print(loss.dtype)
-	        
-			loss.backward()
-	        
-			optimizer.step()
-
-	        # Validate model every n iterations.
-			if counter % 1 == 0:
-
-				valLoss = 0
-				valAcc = 0
-
-	            # Validating the model
-				model.eval()
-	            
-				with torch.no_grad():
-					for inputs, labels in val_loader:
-
-						inputs, labels = inputs.to(device), labels.to(device)
-						output = model.forward(inputs)
-						valLoss += criterion(output, labels).item()
-
-						valAcc += accuracy(output, labels)
-						# #Change these for regression too
-						# output = torch.round(output)
-						# top_p, top_class = output.topk(1, dim=1)
-						# equals = top_class == labels.view(*top_class.shape)
-						# valAcc += torch.mean(equals.type(torch.FloatTensor)).item()
-
-
-	            # Output statistics.
-				valAccHist += [valAcc / len(val_loader)]
-				valLossHist += [valLoss / len(val_loader)]
-
-
-		print('Epoch [{}/{}], TrainLoss: {:.4f}'.format(epoch+1, num_epochs, trainLoss/len(train_loader)))
-		print('\tVal Accuracy: {:.6f} \tTrain Loss: {:.6f} \tVal Loss: {:.6f}'.format( valAcc/len(val_loader), trainLoss/len(train_loader), valLoss/len(val_loader)))
-
-		counter+=1
+		print('Epoch [{}/{}], TrainLoss: {:.4f}'.format(epoch+1, num_epochs, avg_train_loss))
+		print('\tTrain Loss: {:.4f}\tTrain Accuracy: {:.4f}\tVal Loss: {:.4f}\tVal Accuracy: {:.4f}'.format(avg_train_loss, train_acc, avg_val_loss, val_acc))
 
 	return model
 
@@ -189,79 +118,89 @@ def validateModel(model, valLoader):
     plt.show()
 
 
-def train_one_epoch(train_loader, val_loader, lr, model=None, print_model=False):
-	if model is None:
-		model = ConvNeuralNet(256)
-		if device == "cuda":
-			model = model.cuda()
-		if print_model:
-			print(model)
-
-	# defining the optimizer
-	optimizer = Adam(model.parameters(), lr=lr)
-
-	# defining the loss function 
-	criterion = MSELoss()
+def train_one_epoch(model, train_loader, val_loader, optimizer, criterion):
+	model.train()
 	
-	trainLoss = 0
+	train_loss = 0
+	train_correct = 0
+	train_pts = 0
+
 	#Load in the data in batches using the train_loader object
 	for i, (images, labels) in enumerate(train_loader):  
 		
 		# Move tensors to the configured device
 		images = images.to(device)
-		labels = labels.type(torch.FloatTensor)
+		# labels = labels.type(torch.FloatTensor)
 		labels = labels.to(device)
-
-		model.train()
 		
 		# Forward pass
 		outputs = model(images)
+		outputs = torch.squeeze(outputs, 1)
 		loss = criterion(outputs, labels)
-		trainLoss += loss.item()
+
+		train_loss += loss.item()
+		train_correct += accuracy(outputs, labels)
+		train_pts += len(outputs)
 		
 		# Backward and optimize
 		optimizer.zero_grad()
 		loss.backward()
 		optimizer.step()
 
-	# Validate model every n iterations.
-	valLoss = 0
-	valAcc = 0
+	avg_train_loss = train_loss / train_pts
+	train_acc = train_correct / train_pts
 
 	# Validating the model
 	model.eval()
-	
+
+	val_loss = 0
+	val_correct = 0
+	val_pts = 0
+
 	with torch.no_grad():
-		for inputs, labels in val_loader:
+		for images, labels in val_loader:
+			images, labels = images.to(device), labels.to(device)
+			
+			outputs = model(images)
+			outputs = torch.squeeze(outputs, 1)
+			loss = criterion(outputs, labels)
 
-			inputs, labels = inputs.to(device), labels.to(device)
-			output = model(inputs)
-			valLoss += criterion(output, labels).item()
+			val_loss += loss.item()
+			val_correct += accuracy(outputs, labels)
+			val_pts += len(outputs)
 
-			valAcc += accuracy(output, labels)
+	avg_val_loss = val_loss / val_pts
+	val_acc = val_correct / val_pts
 
-	return model, trainLoss, valLoss, valAcc
+	return model, avg_train_loss, train_acc, avg_val_loss, val_acc
 	
 	
 def wandb_run(train_set, val_set, test_set):
 	run = wandb.init()
 
 	batch_size = wandb.config.batch_size
-	lr = wandb.config.lr
+	lr = 10**wandb.config.log_lr
+	kern_size = wandb.config.kern_size
+	dropout = wandb.config.dropout
+
 
 	train_loader = DataLoader(dataset = train_set, batch_size=batch_size, shuffle = True)
 	val_loader = DataLoader(dataset = val_set, batch_size=batch_size, shuffle = True)
 	# test_loader = DataLoader(dataset = test_set, batch_size=batch_size, shuffle = True)
 
-	for epoch in range(40):
-		if epoch == 0:
-			model = None
-		model, train_loss, val_loss, val_acc = train_one_epoch(train_loader, val_loader, lr, model)
+	model = ConvNeuralNet(256, kern_size, dropout).to(device)
+
+	optimizer = Adam(model.parameters(), lr=lr)
+	criterion = MSELoss(reduction='sum')
+
+	for epoch in range(50):
+		model, train_loss, train_acc, val_loss, val_acc = train_one_epoch(model, train_loader, val_loader, optimizer, criterion)
 		wandb.log({
 			'epoch': epoch,
-			'log_train_loss': np.log10(train_loss), 
-			'val_acc': val_acc, 
-			'log_val_loss': np.log10(val_loss)
+			'train_loss': train_loss, 
+			'train_acc': train_acc,
+			'val_loss': val_loss,
+			'val_acc': val_acc
 		})
 
 def hyperparameter_sweep(train_set, val_set, test_set):
@@ -271,14 +210,16 @@ def hyperparameter_sweep(train_set, val_set, test_set):
 		'metric': {'goal': 'minimize', 'name': 'train_loss'},
 		'parameters': 
 		{
-			'batch_size': {'values': [2, 4, 8, 10]},
+			'batch_size': {'values': [4, 16, 64]},
 			# 'epochs': {'values': [5, 10, 15]},
-			'lr': {'max': 1e-2, 'min': 1e-7}
+			'log_lr': {'values': [-6 + 0.5*i for i in range(9)]}, # 'max': -2.0, 'min': -7.0},
+			'kern_size': {'max': 9, 'min': 3},
+			'dropout': {'values': [0.25 + 0.05 * i for i in range(6)]}  # 'max': 0.5, 'min': 0.3}
 		}
 	}
 
-	sweep_id = wandb.sweep(sweep=sweep_configuration, project='esinn_10_data_points')
+	sweep_id = wandb.sweep(sweep=sweep_configuration, project='esinn_6conv4lin_nrows1000_epochs50')
 
-	wandb.agent(sweep_id, function=lambda : wandb_run(train_set, val_set, test_set), count=30)
+	wandb.agent(sweep_id, function=lambda : wandb_run(train_set, val_set, test_set), count=100)
 
 	return
