@@ -180,7 +180,7 @@ def wandb_run(train_set, val_set, test_set):
 
 	batch_size = wandb.config.batch_size
 	lr = 10**wandb.config.log_lr
-	kern_size = wandb.config.kern_size
+	# kern_size = wandb.config.kern_size
 	dropout = wandb.config.dropout
 
 
@@ -188,12 +188,12 @@ def wandb_run(train_set, val_set, test_set):
 	val_loader = DataLoader(dataset = val_set, batch_size=batch_size, shuffle = True)
 	# test_loader = DataLoader(dataset = test_set, batch_size=batch_size, shuffle = True)
 
-	model = ConvNeuralNet(256, kern_size, dropout).to(device)
+	model = ConvNeuralNet(256, None, dropout).to(device)
 
 	optimizer = Adam(model.parameters(), lr=lr)
 	criterion = MSELoss(reduction='sum')
 
-	for epoch in range(50):
+	for epoch in range(200):
 		model, train_loss, train_acc, val_loss, val_acc = train_one_epoch(model, train_loader, val_loader, optimizer, criterion)
 		wandb.log({
 			'epoch': epoch,
@@ -202,6 +202,7 @@ def wandb_run(train_set, val_set, test_set):
 			'val_loss': val_loss,
 			'val_acc': val_acc
 		})
+	torch.save(model, 'models/%s.pth'%(run.name))
 
 def hyperparameter_sweep(train_set, val_set, test_set):
 	sweep_configuration = {
@@ -210,16 +211,16 @@ def hyperparameter_sweep(train_set, val_set, test_set):
 		'metric': {'goal': 'minimize', 'name': 'train_loss'},
 		'parameters': 
 		{
-			'batch_size': {'values': [4, 16, 64]},
+			'batch_size': {'values': [16]}, # [4, 16, 64]},
 			# 'epochs': {'values': [5, 10, 15]},
-			'log_lr': {'values': [-6 + 0.5*i for i in range(9)]}, # 'max': -2.0, 'min': -7.0},
-			'kern_size': {'max': 9, 'min': 3},
-			'dropout': {'values': [0.25 + 0.05 * i for i in range(6)]}  # 'max': 0.5, 'min': 0.3}
+			'log_lr': {'values': [-3]}, # [-5 + 0.5*i for i in range(9)]}, # 'max': -2.0, 'min': -7.0},
+			# 'kern_size': {'max': 9, 'min': 3},
+			'dropout': {'values': [0.3]} # [0.25 + 0.05 * i for i in range(6)]}  # 'max': 0.5, 'min': 0.3}
 		}
 	}
 
-	sweep_id = wandb.sweep(sweep=sweep_configuration, project='esinn_6conv4lin_nrows1000_epochs50')
+	sweep_id = wandb.sweep(sweep=sweep_configuration, project='esinn_paperarch_nrows10000_epochs200')
 
-	wandb.agent(sweep_id, function=lambda : wandb_run(train_set, val_set, test_set), count=100)
+	wandb.agent(sweep_id, function=lambda : wandb_run(train_set, val_set, test_set), count=11)
 
 	return

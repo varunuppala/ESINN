@@ -29,7 +29,7 @@ def main(args):
 	torch.manual_seed(42)
 
 	batch_size = 100
-	nrows = 1000
+	nrows = 10000
 
 	len_dataset = len(pd.read_csv(args.d, nrows=nrows))
 
