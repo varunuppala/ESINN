@@ -58,25 +58,25 @@ class ConvNeuralNet(nn.Module):
     def forward(self, x):
         out = self.conv_layer1(x)
         out = self.relu(out)
-        out = self.dropout(out)
+        # out = self.dropout(out)
         out = self.pool(out)
 
         out = self.conv_layer2(out)
         out = self.relu(out)
-        out = self.dropout(out)
+        # out = self.dropout(out)
         out = self.pool(out)
         
         out = self.conv_layer3(out)
         out = self.relu(out)
-        out = self.dropout(out)
+        # out = self.dropout(out)
 
         out = self.conv_layer4(out)
         out = self.relu(out)
-        out = self.dropout(out)
+        # out = self.dropout(out)
 
         out = self.conv_layer5(out)
         out = self.relu(out)
-        out = self.dropout(out)
+        # out = self.dropout(out)
         out = self.pool(out)
 
         # out = self.conv_layer6(out)
@@ -88,16 +88,15 @@ class ConvNeuralNet(nn.Module):
         
         out = self.fc1(out)
         out = self.relu(out)
-        out = self.dropout(out)
+        # out = self.dropout(out)
 
         out = self.fc2(out)
         # out = self.relu(out)
-        out = self.dropout(out)
+        # out = self.dropout(out)
 
         # out = self.fc3(out)
         # out = self.relu(out)
         # out = self.dropout(out)
 
         # out = self.fc4(out)
-        # out = self.dropout(out)
         return out

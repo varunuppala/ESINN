@@ -18,6 +18,8 @@ from sklearn.model_selection import train_test_split
 # from albumentations.pytorch import ToTensorV2
 # import cv2
 
+import img_gen
+
 transform = transforms.Compose([
     transforms.ToTensor(),
                                      ])
@@ -41,6 +43,34 @@ class ShapesDataset(Dataset):
         
     def __len__(self):
         return len(self.annotations)
+
+    def __getitem__(self, idx):
+        # # print('Getting item', idx)
+        # image_filepath = '.'+self.annotations.iloc[idx,0]+'.png'
+
+        # image = Image.open(image_filepath).convert("L")
+
+        # label = torch.tensor(int(self.annotations.iloc[idx,1])).type(torch.FloatTensor)
+
+        # if self.transform is not None:
+        #     image = self.transform(image)
+        
+        # return image, label
+        return self.images[idx], self.labels[idx]
+
+
+class ShapesDatasetLive(Dataset):
+    def __init__(self, dataset_params):
+        super().__init__()
+
+        self.length = dataset_params[0]
+        self.images, self.labels = img_gen.gen_epoch(dataset_params)
+        self.images = torch.from_numpy(self.images).type(torch.FloatTensor)
+        self.labels = torch.from_numpy(self.labels).type(torch.FloatTensor)
+
+        
+    def __len__(self):
+        return self.length
 
     def __getitem__(self, idx):
         # # print('Getting item', idx)

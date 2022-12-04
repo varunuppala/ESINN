@@ -1,9 +1,11 @@
-from dataloading import ShapesDataset
+import numpy as np
+from dataloading import ShapesDataset, ShapesDatasetLive
 from argparser import parse_args
 import pandas as pd
 import torch
 from torch.utils.data import DataLoader
 from data_vis import show_image
+from img_gen import Circle, Square, Rectangle, Ellipse, Triangle
 
 
 
@@ -40,11 +42,45 @@ print('Iterating through train_loader...')
 
 p = 0
 for images, labels in val_loader:
-    p += 1
-    for i, img in enumerate(images):
-        show_image(img)
-        print(labels[i].item())
-
-
+    print(images.shape)
+    print(labels.shape)
+    # p += 1
+    # for i, img in enumerate(images):
+    #     show_image(img)
+    #     print(labels[i].item())
 print('P:', p)
+
+#######################################
+
+print('NEW WAY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+
+np.random.seed(0)
+torch.manual_seed(0)
+
+n = 20
+img_dim = 256
+minw, maxw = 8, 100
+minh, maxh = 8, 100
+mincount, maxcount = 1, 10
+minpr, maxpr = 0.02, 0.25
+
+shape_color = 1
+bg_color = 0
+
+shape_set = [Circle, Square] #, Triangle, Ellipse, Rectangle]
+params = (n, img_dim, shape_set, shape_color, bg_color, minw, maxw, minh, maxh, mincount, maxcount, minpr, maxpr)
+
+dataset = ShapesDatasetLive(params)
+
+train_loader = DataLoader(dataset = dataset,batch_size=5,shuffle = True)
+
+p = 0
+for images, labels in train_loader:
+    print(images.shape)
+    print(labels.shape)
+    # p += 1
+    # for i, img in enumerate(images):
+    #     show_image(img)
+    #     print(labels[i].item())
+
 
