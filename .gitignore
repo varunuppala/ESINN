@@ -1,4 +1,4 @@
 *.png
 code/wandb/
-Circ*/
 data.zip
+data/*/

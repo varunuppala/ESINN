@@ -30,11 +30,11 @@ def main(args):
 	np.random.seed(42)
 
 	batch_size = 16						# Batch size
-	nrows = None							# Number of datapoints to read from the csv (None = all of the data)
+	nrows = None						# Number of datapoints to read from the csv (None = all of the data)
 	dataset_name = 'Circ_WonB'			# Dataset to use
 	num_models = 10						# How many models to train in this training run
 	model_save_freq = 2					# After how many batches do we save a version of the model
-	report_freq = 1						# After how many batches do we report the loss of the model
+	report_freq = 10						# After how many batches do we report the loss of the model
 
 
 	csv_path = '../%s/%s_labels.csv'%(dataset_name, dataset_name)

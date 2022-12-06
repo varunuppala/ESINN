@@ -45,7 +45,7 @@ def train(logging_params=None, report_freq=100, cont_data_gen=True, dataset_para
 			csvwriter = csv.writer(f)
 			csvwriter.writerow(['epoch_num', 'batch_num', 'avg_train_loss', 'train_acc', 'avg_val_loss', 'val_acc'])
 
-	num_epochs = 2
+	num_epochs = 1
 	if cont_data_gen:
 		batch_size = 16
 	lr = 10**-3.5

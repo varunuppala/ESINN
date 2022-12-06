@@ -270,7 +270,7 @@ def gen_dataset(name, params, rngseed=None, save=True):
 
     n, img_size, shapeset, shape_color, bg_color, minw, maxw, minh, maxh, mincount, maxcount, minpr, maxpr = params
 
-    path = './%s'%(name)
+    path = './data/%s'%(name)
 
     if save:
         if not os.path.exists(path):
@@ -350,10 +350,10 @@ if __name__ == '__main__':
 
     n = 50000
     img_dim = 256
-    minw, maxw = 8, 50
-    minh, maxh = 8, 50
+    minw, maxw = 8, 90
+    minh, maxh = 8, 90
     mincount, maxcount = 1, 10
-    minpr, maxpr = 0.02, 0.10
+    minpr, maxpr = 0.0, 0.10
 
     shape_color = WHITE
     bg_color = BLACK
@@ -365,23 +365,23 @@ if __name__ == '__main__':
     
     shape_set = [Circle, Square, Triangle]
     params = (n, img_dim, shape_set, shape_color, bg_color, minw, maxw, minh, maxh, mincount, maxcount, minpr, maxpr)
-    gen_dataset('CircSqrTri_WonB', params, 0, save=True)
+    gen_dataset('CircSqrTri_WonB', params, 3, save=True)
 
     
     shape_set = [Circle, Square, Triangle, Ellipse, Rectangle]
     params = (n, img_dim, shape_set, shape_color, bg_color, minw, maxw, minh, maxh, mincount, maxcount, minpr, maxpr)
-    gen_dataset('CircSqrTriRecElp_WonB', params, 0, save=True)
+    gen_dataset('CircSqrTriRecElp_WonB', params, 5, save=True)
 
     shape_set = [Circle]
     params = (n, img_dim, shape_set, shape_color, bg_color, minw, maxw, minh, maxh, mincount, maxcount, minpr, maxpr)
-    gen_dataset('Circ_WonB', params, 0, save=True)
+    gen_dataset('Circ_WonB', params, 2, save=True)
 
     shape_set = [Circle, Square, Triangle, Ellipse, Rectangle]
     shape_color = BLACK
     bg_color = WHITE
     params = (n, img_dim, shape_set, shape_color, bg_color, minw, maxw, minh, maxh, mincount, maxcount, minpr, maxpr)
-    gen_dataset('CircSqrTriRecElp_BonW', params, 0, save=True)
-
+    gen_dataset('CircSqrTriRecElp_BonW', params, 4, save=True)
+    
     shape_set = [Circle]
     params = (n, img_dim, shape_set, shape_color, bg_color, minw, maxw, minh, maxh, mincount, maxcount, minpr, maxpr)
-    gen_dataset('Circ_BonW', params, 0, save=True)
+    gen_dataset('Circ_BonW', params, 1, save=True)
