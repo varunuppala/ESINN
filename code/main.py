@@ -24,20 +24,20 @@ warnings.filterwarnings("ignore")
 
 device = ("cuda" if torch.cuda.is_available() else "cpu")
 
-def main(args):
+def main(args, dataset):
 
 	torch.manual_seed(42)
 	np.random.seed(42)
 
 	batch_size = 16						# Batch size
 	nrows = None						# Number of datapoints to read from the csv (None = all of the data)
-	dataset_name = 'Circ_WonB'			# Dataset to use
-	num_models = 10						# How many models to train in this training run
-	model_save_freq = 2					# After how many batches do we save a version of the model
+	dataset_name = dataset				# Dataset to use
+	num_models = 4						# How many models to train in this training run
+	model_save_freq = 50					# After how many batches do we save a version of the model
 	report_freq = 10						# After how many batches do we report the loss of the model
 
 
-	csv_path = '../%s/%s_labels.csv'%(dataset_name, dataset_name)
+	csv_path = '../data/%s/%s_labels.csv'%(dataset_name, dataset_name)
 	len_dataset = len(pd.read_csv(csv_path, nrows=nrows))
 	train_size = int(0.7 * len_dataset)
 	val_size = int(0.1 * len_dataset)
@@ -46,7 +46,7 @@ def main(args):
 
 	print('lengths of \n Dataset: {}, Train: {}, Validation: {} ,Test: {}'.format(len_dataset,train_size,val_size,test_size))
 
-	dataset = ShapesDataset(csv_file = '../%s/%s_labels.csv'%(dataset_name, dataset_name), nrows=nrows ,device=device)
+	dataset = ShapesDataset(csv_file = csv_path, nrows=nrows ,device=device)
 
 	train_val_set,test_set =  torch.utils.data.random_split(dataset,[train_size+val_size,test_size])
 	train_set,val_set =  torch.utils.data.random_split(train_val_set,[train_size,val_size])
@@ -79,4 +79,7 @@ def main(args):
 if __name__ == '__main__':
 	args = parse_args()
 
-	main(args)
+	datasets = ['Circ_BonW', 'CircSqrTri_WonB', 'CircSqrTriRecElp_BonW', 'CircSqrTriRecElp_WonB']
+
+	for dataset in datasets:
+		main(args, dataset)

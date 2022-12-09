@@ -32,7 +32,7 @@ class ShapesDataset(Dataset):
         self.images = []
         self.labels = []
         for idx in range(len(self.annotations)):
-            image_filepath = '.'+self.annotations.iloc[idx,0]+'.png'
+            image_filepath = '../data/'+self.annotations.iloc[idx,0][1:]+'.png'
             image = Image.open(image_filepath).convert("L")
             label = torch.tensor(int(self.annotations.iloc[idx,1])).type(torch.FloatTensor)
             if self.transform is not None:
