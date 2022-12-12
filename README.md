@@ -17,7 +17,7 @@ Please find the Data in the folders:
  * [Data folder]
    * [.txt] X 1 file - Contains the specifications of images in the folder
    * [.csv] X 1 file - Contains image path and number of shapes
-   * [.png] X 10,000 file - Images
+   * [.png] X 50,000 file - Images
 
 ## Relevant Paper Links
 
