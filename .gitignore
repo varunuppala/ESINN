@@ -2,4 +2,4 @@
 code/wandb/
 data.zip
 data/*/
-code/models/
+code/models/*/

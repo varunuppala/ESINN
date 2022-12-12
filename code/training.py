@@ -1,6 +1,8 @@
 import os
 import csv
 
+from collections import defaultdict
+
 import torch
 from torch.optim import Adam, SGD
 from torch.nn import Linear, ReLU, CrossEntropyLoss,MSELoss
@@ -81,6 +83,26 @@ def train(logging_params=None, report_freq=100, cont_data_gen=True, dataset_para
 		torch.save(model, '%s/%s.pth'%(model_path, model_name))
 
 	return model
+
+
+def confusion_matrix_count(model, dataloader):
+	matrix = defaultdict(lambda : defaultdict(lambda : 0))
+
+	model.eval()
+	with torch.no_grad():
+		for inputs, labels in dataloader:
+			inputs, labels = inputs.to(device), labels.to(device)
+
+			output = model.forward(inputs)
+			# print('Outputs shape:', output.shape)
+			# print('Labels shape:', labels.shape)
+
+			for i, label in enumerate(labels):
+				pred = int(round(output[i].item()))
+				label = int(label.item())
+				matrix[label][pred] = matrix[label][pred] + 1
+	return matrix
+
 
 
 # def validateModel(model, valLoader):
