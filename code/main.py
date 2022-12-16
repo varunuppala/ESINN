@@ -32,8 +32,8 @@ def main(args, dataset):
 	batch_size = 16						# Batch size
 	nrows = None						# Number of datapoints to read from the csv (None = all of the data)
 	dataset_name = dataset				# Dataset to use
-	num_models = 4						# How many models to train in this training run
-	model_save_freq = 50					# After how many batches do we save a version of the model
+	num_models = 1						# How many models to train in this training run
+	model_save_freq = 50000000					# After how many batches do we save a version of the model
 	report_freq = 10						# After how many batches do we report the loss of the model
 
 
@@ -61,7 +61,7 @@ def main(args, dataset):
 
 	for model_num in range(num_models):
 		model_num_string = ('0'*model_num_zeros + str(model_num+1))[-model_num_zeros:]
-		model_name = '%s_model%s'%(dataset_name, model_num_string)
+		model_name = '%s_model%s_transfer'%(dataset_name, model_num_string)
 		model_path = 'models/%s'%(model_name)
 		loss_log_file = '%s/%s_loss_data.csv'%(model_path, model_name)
 		logging_params = (model_name, model_path, model_save_freq, loss_log_file)
@@ -79,7 +79,7 @@ def main(args, dataset):
 if __name__ == '__main__':
 	args = parse_args()
 
-	datasets = ['Circ_BonW', 'CircSqrTri_WonB', 'CircSqrTriRecElp_BonW', 'CircSqrTriRecElp_WonB']
+	datasets = ['CircSqrTriRecElp_BonW'] #['Circ_BonW', 'CircSqrTri_WonB', 'CircSqrTriRecElp_BonW', 'CircSqrTriRecElp_WonB']
 
 	for dataset in datasets:
 		main(args, dataset)

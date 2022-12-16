@@ -100,3 +100,33 @@ class ConvNeuralNet(nn.Module):
 
         # out = self.fc4(out)
         return out
+    
+    def activation(self, x, layer):
+        assert layer in {1, 2, 3, 4, 5}
+
+        out = self.conv_layer1(x)
+        out = self.relu(out)
+        if layer == 1:
+            return out
+        out = self.pool(out)
+
+        out = self.conv_layer2(out)
+        out = self.relu(out)
+        if layer == 2:
+            return out
+        out = self.pool(out)
+        
+        out = self.conv_layer3(out)
+        out = self.relu(out)
+        if layer == 3:
+            return out
+
+        out = self.conv_layer4(out)
+        out = self.relu(out)
+        if layer == 4:
+            return out
+
+        out = self.conv_layer5(out)
+        out = self.relu(out)
+        if layer == 5:
+            return out

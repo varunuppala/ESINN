@@ -52,7 +52,8 @@ def train(logging_params=None, report_freq=100, cont_data_gen=True, dataset_para
 		batch_size = 16
 	lr = 10**-3.5
 
-	model = ConvNeuralNet(256, k_size=None, dropout_val=0.0)
+	# model = ConvNeuralNet(256, k_size=None, dropout_val=0.0)
+	model = torch.load('models/CircSqrTriRecElp_WonB_model2.pth')
 	if device == "cuda":
 		model = model.cuda()
 	print(model)

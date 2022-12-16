@@ -348,11 +348,11 @@ if __name__ == '__main__':
     WHITE = 1
     BLACK = 0
 
-    n = 50000
+    n = 10000
     img_dim = 256
     minw, maxw = 8, 90
     minh, maxh = 8, 90
-    mincount, maxcount = 1, 10
+    mincount, maxcount = 1, 40
     minpr, maxpr = 0.0, 0.10
 
     shape_color = WHITE
@@ -365,17 +365,18 @@ if __name__ == '__main__':
     
     shape_set = [Circle, Square, Triangle]
     params = (n, img_dim, shape_set, shape_color, bg_color, minw, maxw, minh, maxh, mincount, maxcount, minpr, maxpr)
-    gen_dataset('CircSqrTri_WonB', params, 3, save=True)
+    gen_dataset('CircSqrTri_WonB_many', params, 13, save=True)
 
     
     shape_set = [Circle, Square, Triangle, Ellipse, Rectangle]
     params = (n, img_dim, shape_set, shape_color, bg_color, minw, maxw, minh, maxh, mincount, maxcount, minpr, maxpr)
-    gen_dataset('CircSqrTriRecElp_WonB', params, 5, save=True)
+    gen_dataset('CircSqrTriRecElp_WonB_many', params, 15, save=True)
 
     shape_set = [Circle]
     params = (n, img_dim, shape_set, shape_color, bg_color, minw, maxw, minh, maxh, mincount, maxcount, minpr, maxpr)
-    gen_dataset('Circ_WonB', params, 2, save=True)
+    gen_dataset('Circ_WonB_many', params, 12, save=True)
 
+    '''
     shape_set = [Circle, Square, Triangle, Ellipse, Rectangle]
     shape_color = BLACK
     bg_color = WHITE
@@ -385,3 +386,4 @@ if __name__ == '__main__':
     shape_set = [Circle]
     params = (n, img_dim, shape_set, shape_color, bg_color, minw, maxw, minh, maxh, mincount, maxcount, minpr, maxpr)
     gen_dataset('Circ_BonW', params, 1, save=True)
+    '''
